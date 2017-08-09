@@ -1,4 +1,20 @@
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://www.reddit.com/", false);
+xhr.send();
 
+xhr.setRequestHeader('Content-Type', 'text/xml');
+xhr.send();
+
+xmlDocument = xhr.responseXML;
+console.log(xmlDocument.childNodes['0'].textContent);
+
+var demo = '{"post": { "title": "hotposts", "author": "Jeffrey"}}';
+
+var json = JSON.parse(demo);
+console.log(json);
+
+console.log(xhr.status);
+console.log(xhr.statusText);
 import praw
 
 reddit = praw.Reddit('bot1')
@@ -70,7 +86,15 @@ $(document).on('click', '.hotpostsButton', function(){
                      after: null
                      before: null
                           }
-}
+                    {
+ {
+  myBlog: {
+  "pageViews": "4720",
+  "subscribers": "1711",
+  "numberOfPosts": "37",
+   "mostRecentPost": "2013-01-04",
+  }
+
              hotpostDiv.append(p)
              hotpostDiv.append(hotpostImage)
 
